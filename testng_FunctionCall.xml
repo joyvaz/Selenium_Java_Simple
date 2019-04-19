@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="VerifyTicker_FunctionCall">
+  <test name="Test_FunctionCall">
+    <classes>
+      <class name="testCase.VerifyTicker_FunctionCall"/>
+    </classes>
+  </test> <!-- Test_FunctionCall -->
+</suite> <!-- VerifyTicker_FunctionCall -->
