@@ -13,7 +13,7 @@ public class UI_Operations {
 	public Boolean verifyTickerPriceRange(String ticker){
 		
 		Boolean priceRange = false;
-		//Search for AAPL stock
+		//Search for stock ticker
 		Reporter.log("Searching Ticker: "+ticker);
 		driver.findElement(By.xpath("//input[@title='Search']")).sendKeys(ticker);
 		driver.findElement(By.xpath("//input[@title='Search']")).sendKeys(Keys.ENTER);
@@ -41,5 +41,5 @@ public class UI_Operations {
 				priceRange = true;
 			}
 			return priceRange;
-}
+	}
 }
