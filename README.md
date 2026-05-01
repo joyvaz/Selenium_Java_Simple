@@ -1,67 +1,100 @@
+
 # 🚀 Selenium Java BDD Framework
 
 ## 📋 Overview
 
-The Selenium Java BDD Framework is designed for test automation. It uses Java, Selenium, Cucumber (BDD), and TestNG to make testing easier and more effective. This framework supports parallel execution, which means you can run tests at the same time, saving you valuable time. 
+This project is a robust Selenium Java BDD (Behavior Driven Development) automation framework. It leverages Java, Selenium WebDriver, Cucumber, TestNG, and Allure for comprehensive test automation and reporting. The framework is designed for maintainability, scalability, and parallel execution.
 
-Other features include:
+## 🗂️ Project Structure
 
-- **Page Object Model Design:** This makes it simple to manage your tests.
-- **Allure Reporting:** Get clear reports to understand test results.
-- **Thread Safety:** Run multiple tests safely at once.
+```
+src/
+   main/
+      java/
+         runners/           # Test runners (RunTest.java, ReRunTest.java)
+         utils/             # Utilities and hooks
+   test/
+      java/
+         pages/             # Page Object Model classes
+            login/           # Login page objects and locators
+         stepdefinitions/   # Step definition classes for Cucumber
+      resources/
+         features/          # Feature files (e.g., Login.feature)
+reports/                # Allure and Cucumber reports
+target/                 # Build output
+pom.xml                 # Maven configuration
+testng-execution.xml    # TestNG suite configuration
+```
 
 ## 🚀 Getting Started
 
-To begin using the Selenium-Java-Framework, follow the instructions below. You will be able to download and run the software quickly.
+### 1. Prerequisites
 
-### 1. System Requirements
+- **Java:** JDK 21 (or compatible with your Maven compiler settings)
+- **Maven:** 3.6+
+- **Allure CLI:** For report generation (`npm install -g allure-commandline` or [see Allure docs](https://docs.qameta.io/allure/))
 
-Before you download the framework, ensure your system meets the following requirements:
+### 2. Installation
 
-- **Operating System:** Windows, macOS, or Linux
-- **Java Version:** JDK 8 or higher
-- **Disk Space:** At least 100MB free
-- **Memory:** Minimum 2GB RAM
+Clone the repository and install dependencies:
 
-### 4. Setting Up Your Environment
+```sh
+git clone <repo-url>
+cd Selenium_Java_Simple
+mvn clean install
+```
 
-To run the framework, make sure you have Java installed:
+### 3. Configuration
 
-1. Clone the Repo
-2. Navigate to folder aand run mvn install
+- Update test data and environment variables in `src/main/resources` or as required by your project.
+- Feature files are located in `src/test/resources/features`.
+- Page objects and step definitions are in `src/test/java/pages` and `src/test/java/stepdefinitions`.
 
-### 5. Running Your First Test
+### 4. Running Tests
 
-1. Navigate to the folder where you extracted the framework files.
-2. Locate the example test files to understand how it works.
-3. Open the Command Prompt or Terminal, and run your tests by executing:
-   ```
-   mvn clean test
-   ```
-   This command runs all tests in the project.
+To execute all tests using Maven and TestNG:
 
-### 6. View Test Results
+```sh
+mvn clean test
+```
 
-After running your tests, you can check the results. Allure will create a detailed report. To view it:
+Or run a specific suite:
 
-1. Navigate to the `target/allure-results` directory.
-2. Open a terminal or command prompt there and run the command:
-   ```
-   allure serve
-   ```
-   This will open a browser showing your test results.
+```sh
+mvn test -DsuiteXmlFile=testng-execution.xml
+```
+
+### 5. Viewing Reports
+
+**Allure Report:**
+
+After test execution, generate and view the Allure report:
+
+```sh
+allure serve reports/allure-results
+```
+
+**Cucumber HTML Report:**
+
+Check the `reports/cucumber-html-reports/` directory for HTML reports.
 
 ## 🔧 Features
 
-- **Easy Setup:** Simple download and setup procedures.
-- **Parallel Execution:** Run multiple tests simultaneously.
-- **Detailed Reporting:** Clear insights using Allure.
-- **Modular Design:** Easily add or modify test cases.
+- **Page Object Model:** Clean separation of test logic and UI structure
+- **Cucumber BDD:** Write tests in Gherkin syntax
+- **TestNG Integration:** Flexible test execution and configuration
+- **Parallel Execution:** Configurable via Maven Surefire plugin
+- **Allure Reporting:** Rich, interactive test reports
+- **Retry Mechanism:** Re-run failed tests (see `ReRunTest.java` and TestNG XML)
 
 ## 🛠️ Troubleshooting
 
-If you encounter issues while using the framework, here are common fixes:
+- **Java Not Recognized:** Ensure Java is installed and `JAVA_HOME` is set
+- **Maven Not Found:** Install Maven and add it to your PATH
+- **Allure Not Found:** Install Allure CLI globally
+- **WebDriver Issues:** Ensure browser drivers are compatible and available
+- **Tests Not Running:** Check Maven dependencies and feature file paths
 
-- **Java Not Recognized:** Ensure Java is installed correctly and added to system PATH.
-- **Tests Not Running:** Check if Maven is installed and working.
-- **Report Not Generating:** Ensure Allure dependencies are properly added.
+## 📄 License
+
+This project uses Selenium and other open-source libraries. See their respective licenses for details.

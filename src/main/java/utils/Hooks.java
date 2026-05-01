@@ -58,7 +58,7 @@ public class Hooks
             }
             catch (Exception e)
             {
-                System.err.println("Erreur lors de la capture des preuves de fail : " + e.getMessage());
+                System.err.println("Error in capturing evidence of failure: " + e.getMessage());
             }
         }
         CommonVariables.count.get().incrementAndGet();
